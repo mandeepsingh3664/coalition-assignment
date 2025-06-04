@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\Product;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,3 +16,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::get('/', [Product::class, 'index']);
+Route::post('/products', [Product::class, 'store'])->name('products.store');
+Route::post('/products/update', [Product::class, 'update'])->name('products.update');
